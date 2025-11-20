@@ -1,0 +1,40 @@
+<!--
+Autor: Byron Melo
+Fecha: 10-11-2025
+Versión: 1.0
+Descripción: Archivo HTML que sirve como interfaz para el usuario en el navegador en donde
+se puede dar click a 3 hipervínculos que representan solicitudes HTTP que permiten utilizar las
+llaves de distintos servlets de nuestra aplicación web.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Página</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+
+<h2>Manejo de Sesiones</h2>
+<ul>
+    <!--Hipervínculo que muestra la tabla de productos -->
+    <li><a href="/manejosesiones/productos">Mostrar Productos</a></li>
+    <br>
+    <!--Hipervínculo que utiliza la llave de verCarroServlet-->
+    <li><a href="/manejosesiones/ver-carro">Ver Carrito de Compras</a></li>
+    <!--Hipervínculo que usa la llave login.html de mi LoginServlet para
+    decidir si mostrar el formulario de inicio de sesión-->
+    <li><a href="/manejosesiones/login.html">Iniciar Sesión</a></li>
+    <br>
+    <!--Hipervínculo que utiliza la llave de LogoutServlet para cerrar sesión-->
+    <li><a href="/manejosesiones/logout">Cerrar Sesión</a></li>
+    <br>
+
+</ul>
+
+
+
+</body>
+</html>
