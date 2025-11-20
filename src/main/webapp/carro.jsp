@@ -95,7 +95,7 @@ un objeto de tipo DetalleCarro y este objeto almacena:
             EXPRESSION
             Cada celda imprime un valor del objeto Java.
         -->
-        <td><%= item.getProducto().getIdProducto() %></td>
+        <td><%= item.getProducto().getId() %></td>
         <td><%= item.getProducto().getNombre() %></td>
         <td><%= item.getProducto().getPrecio() %></td>
         <td><%= item.getCantidad() %></td>

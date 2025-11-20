@@ -55,13 +55,18 @@ public class ProductoServlet extends HttpServlet {
             LoginService
              */
         LoginService auth = new LoginServiceSessionImpl();
+        /*Creamos un contenedor que guarda lo que retorna el metodo getUserName, que es el valor
+          de nuestra clave username que es un atributo de un objeto HttpSession el cual creamos a partir
+          la petición enviada por el cliente
+         */
         Optional<String> usernameOptional = auth.getUsername(req);
 
-            /*Creamos un contenedor que guarda lo que retorna el metodo getUserName, que es el valor
-             de nuestra clave username que es un atributo de un objeto HttpSession el cual creamos a partir
-             la petición enviada por el cliente
-             */
 
+
+
+         /* ESTE ES EL HTML DINÁMICO QUE ENVÍA ESTE SERVLET COMO RESPUESTA PERO LO COMENTAMOS PORQUE HA SIDO REEMPLAZADO
+         POR PRODUCTO.JSP
+          */
         //Definimos el tipo de contenido que se enviará como respuesta a la petición
         resp.setContentType("text/html;charset=UTF-8");
 
@@ -69,6 +74,7 @@ public class ProductoServlet extends HttpServlet {
          * Usamos un try-with-resources para que el objeto PrintWriter se cierre automáticamente
          * una vez se termine el bloque try
          * */
+        /*
         try(PrintWriter out = resp.getWriter())
         {
             //Imprimimos un archivo HTML con PrintWriter
@@ -95,7 +101,7 @@ public class ProductoServlet extends HttpServlet {
              * Podríamos utilizar la etiqueta caption para poner un título que vaya unido a la tabla
              * out.println("<caption style= 'text-align: center';>LISTA DE PRODUCTOS</caption>");
              * */
-
+        /*
             //Creamos la cabecera de la tabla
             out.println("<thead>");
             //Creamos la fila de la cabecera de la tabla que tendrá un color de fondo azul marino
@@ -120,6 +126,7 @@ public class ProductoServlet extends HttpServlet {
              * Creamos un bucle for-each para construir en cada iteración una fila con
              * todos los datos de un producto con base a los atributos definidos en nuestro modelo
              * */
+        /*
             productos.forEach(p ->{
                 //El atributo align='center' nos permite centrar todos los datos de los campos de las filas
                 out.println("<tr>");
@@ -137,6 +144,7 @@ public class ProductoServlet extends HttpServlet {
                      * un parámetro en la URL que será el ID de cada producto que obtenemos con el metodo
                      * getIdProducto() de nuestra clase Producto
                      * */
+        /*
                     out.println("<form action='" + req.getContextPath() + "/agregar-carro' method='get' class='form-inline-icon'>");
                     out.println("<input type='hidden' name='id' value='" + p.getId() + "'>");
                     out.println("<button type='submit' class='icon-button' title='Agregar al carrito'>");
@@ -158,5 +166,11 @@ public class ProductoServlet extends HttpServlet {
             out.println("</html>");
 
         }
+        */
+        //Seteamos los atributos de productos y username para parsarlo al JSP
+        req.setAttribute("productos", productos);
+        req.setAttribute("username", usernameOptional);
+        //Pasamos el servlet
+        getServletContext().getRequestDispatcher("/producto.jsp").forward(req, resp);
     }
 }

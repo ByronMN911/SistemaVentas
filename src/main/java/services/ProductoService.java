@@ -1,4 +1,5 @@
 package services;
+import models.Categoria;
 import models.Producto;
 import java.util.List;
 import java.util.Optional;
@@ -19,4 +20,14 @@ public interface ProductoService {
      * que se busca por su ID.
      * */
     Optional<Producto> porId(Long id);
+
+    void guardar(Producto producto);
+    void eliminar(Long id);
+
+    //Mostrar una lista de categorias
+    List<Categoria> ListaCategoria();
+
+    //Obtenemos una categoria por su id
+    Optional<Categoria> porIdCategoria(Long id);
+
 }
