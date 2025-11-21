@@ -1,0 +1,189 @@
+/* ==========================
+   ESTILOS GENERALES
+========================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #e8f4f8 0%, #b8d4e6 100%);
+    color: #2f3640;
+    text-align: center;
+    padding: 40px;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* ==========================
+   TITULOS
+========================== */
+h1 {
+    color: #40739e;
+    text-align: center;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #2f3640;
+    margin-bottom: 10px;
+}
+
+/* ==========================
+   ENLACES
+========================== */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #0097e6;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #40739e;
+    text-decoration: underline;
+}
+
+/* ==========================
+   TABLAS
+========================== */
+table {
+    background-color: #ffffff;
+    border-collapse: collapse;
+    width: 70%;
+    margin: 20px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+th {
+    background-color: #4a69bd;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #dff9fb;
+    transition: background-color 0.3s ease;
+}
+
+/* ==========================
+   FORMULARIOS
+========================== */
+form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px;
+    width: 350px;
+    margin: 30px auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+/* Formulario especial para botones de ícono (sin estilos)
+Gracias a estos estilos el boton del formulario no tiene fondo (es transparente) y el icono
+aparece solo*/
+form.form-inline-icon {
+    all: unset;
+    display: inline;
+    background: none;
+    padding: 0;
+    margin: 0;
+    width: auto;
+    box-shadow: none;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #dcdde1;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #0097e6;
+    box-shadow: 0 0 4px rgba(0,151,230,0.4);
+    outline: none;
+}
+
+/* ==========================
+   LISTAS
+========================== */
+ul {
+    list-style-position: inside;
+    padding: 0;
+    text-align: center;
+}
+
+/* ==========================
+   BOTONES (SOLO ÍCONO)
+========================== */
+
+button {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Clase específica para los botones de ícono */
+.icon-button {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Ícono dentro del botón */
+.icon-button i {
+    font-size: 20px;
+    color: #27ae60;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+/* Efecto hover (solo sobre el ícono visible) */
+.icon-button:hover i {
+    color: #1e8449;
+    transform: scale(1.2);
+}
+
+/* ==========================
+   MENSAJES DE USUARIO
+========================== */
+h3 {
+    color: #2f3640;
+    font-weight: normal;
+    background-color: #dcdde1;
+    padding: 10px;
+    width: fit-content;
+    margin: 10px auto;
+    border-radius: 8px;
+}
