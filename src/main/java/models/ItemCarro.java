@@ -102,7 +102,7 @@ public class ItemCarro {
          * NullPointerException si alguno de los valores es null.
          * Dos ítems son considerados iguales si contienen el mismo producto (mismo ID)
          */
-        return Objects.equals(producto.getIdProducto(), itemCarro.producto.getIdProducto());
+        return Objects.equals(producto.getId(), itemCarro.producto.getId());
 
     }
 
@@ -117,7 +117,7 @@ public class ItemCarro {
      * */
     @Override
     public int hashCode() {
-        return Objects.hash(producto.getIdProducto());
+        return Objects.hash(producto.getId());
     }
 
     /**

@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>Inicio de Sesión</h1>
-<form action="/manejosesiones/login" method="post">
+<form action="/sistemaventas/login" method="post">
     <div>
         <label for="user">Ingrese el usuario</label>
         <input type="text" id="user" name="user">
@@ -28,7 +28,7 @@
 
     <br><br>
 
-    <a href="/manejosesiones/index.html">Regresar a la Página Principal</a>
+    <a href="/sistemaventas/index.html">Regresar a la Página Principal</a>
 </form>
 </body>
 </html>

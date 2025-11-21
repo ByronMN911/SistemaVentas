@@ -33,6 +33,9 @@ public class Producto {
     // Descripción general del producto.
     private String descripcion;
 
+    //Codigo de un producto
+    private String codigo;
+
     // Fecha de elaboración del producto.
     private LocalDate fechaElaboracion;
 
@@ -42,7 +45,7 @@ public class Producto {
     // Estado o condición (posiblemente disponible, vencido, etc.).
     private int condicion;
 
-    private String codigo;
+
 
 
 /*
@@ -56,7 +59,7 @@ instanciación sin parámetros, como Hibernate, Spring, etc.)
 
 // Constructor con parámetros para inicializar el objeto Producto completo
 
-    public Producto(Long id, String nombreProducto, double precio, String codigo, int stock, String descripcion,  String tipo, LocalDate fechaElaboracion, LocalDate fechaCaducidad, int condicion) {
+    public Producto(Long id, String nombreProducto, double precio, String codigo, String descripcion, int stock, String tipo, LocalDate fechaElaboracion, LocalDate fechaCaducidad, int condicion) {
         //Inicializamos los atributos con los parámetros del constructor
         this.id = id;
         this.nombreProducto = nombreProducto;

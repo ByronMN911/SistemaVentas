@@ -30,8 +30,9 @@ import java.util.List;
 import java.util.Optional;
 
 /*Definimos 2 llaves para acceder a este servlet
+{"/productos.html", "/productos"}
  */
-@WebServlet({"/productos.html", "/productos"})
+@WebServlet("/productos")
 public class ProductoServlet extends HttpServlet {
     //Sobreescribimos el metodo doGet
     @Override
@@ -67,7 +68,7 @@ public class ProductoServlet extends HttpServlet {
          /* ESTE ES EL HTML DINÁMICO QUE ENVÍA ESTE SERVLET COMO RESPUESTA PERO LO COMENTAMOS PORQUE HA SIDO REEMPLAZADO
          POR PRODUCTO.JSP
           */
-        //Definimos el tipo de contenido que se enviará como respuesta a la petición
+        /*Definimos el tipo de contenido que se enviará como respuesta a la petición
         resp.setContentType("text/html;charset=UTF-8");
 
         /*
@@ -170,7 +171,14 @@ public class ProductoServlet extends HttpServlet {
         //Seteamos los atributos de productos y username para parsarlo al JSP
         req.setAttribute("productos", productos);
         req.setAttribute("username", usernameOptional);
-        //Pasamos el servlet
+
+        /*
+         * el servlet redirige al usuario al jsp para ver los productos,
+         * pero redirige sin volver a hacer una nueva petición, es un forward interno
+         * El getServletContext retorna un objeto que representa a la aplicación web completa
+         * El getRequestDispatcher permite enviar una petición a un recurso dentro del servidor
+         * con forward(req, resp) transferimos el control al JSP (muestra la tabla de productos)
+         * */
         getServletContext().getRequestDispatcher("/producto.jsp").forward(req, resp);
     }
 }

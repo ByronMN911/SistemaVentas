@@ -135,6 +135,7 @@ public class ProductoRepositoryJdbcImplement implements Repository<Producto> {
             } else {
                 stmt.setDate(7, Date.valueOf(producto.getFechaElaboracion()));
                 stmt.setDate(8, Date.valueOf(producto.getFechaCaducidad()));
+
             }
             stmt.executeUpdate();
         }
@@ -171,18 +172,18 @@ public class ProductoRepositoryJdbcImplement implements Repository<Producto> {
         Producto p = new Producto();
         p.setId(rs.getLong("id"));
         p.setNombre(rs.getString("nombreProducto"));
-        p.setStock(rs.getInt("stock"));
         p.setPrecio(rs.getDouble("precio"));
+        p.setCodigo(rs.getString("codigo"));
         p.setDescripcion(rs.getString("descripcion"));
+        p.setStock(rs.getInt("stock"));
+        Categoria c = new Categoria();
+        c.setId(rs.getLong("idCategoria"));
+        c.setNombre(rs.getString("categoria"));
+        p.setCategoria(c);
         p.setFechaElaboracion(rs.getDate("fecha_elaboracion").toLocalDate());
         p.setFechaCaducidad(rs.getDate("fecha_caducidad").toLocalDate());
         p.setCondicion(rs.getInt("condicion"));
 
-        Categoria c = new Categoria();
-        c.setId(rs.getLong("idCategoria"));
-        c.setNombre(rs.getString("categoria"));
-
-        p.setCategoria(c);
         return p;
     }
 

@@ -7,8 +7,11 @@ import java.util.Optional;
  * Autor: Byron Melo
  * Fecha: 12/11/2025
  * Versión: 1.0
- * Descripción: Clase especial de tipo interfaz donde definimos 2 metodo que serán
- * implementados por otras clases
+ * Descripción: Clase especial de tipo interfaz donde definimos metodos que serán
+ * implementados por las clases de servicio de nuestra aplicación.
+ * Las clases de servicio actúan como un intermediario entre los servlets y nuestras clases DAOS,
+ * o sea las clases de nuestro package repositorio que utilizan JDBC para conectarse a la base de datos y
+ * realizar operaciones CRUD.
  * */
 
 public interface ProductoService {

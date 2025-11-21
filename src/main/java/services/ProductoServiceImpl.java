@@ -19,21 +19,22 @@ import java.util.Arrays;
 // Se importa Optional para manejar de forma segura valores que pueden o no existir
 import java.util.Optional;
 
-public class ProductoServiceImpl implements ProductoService {
-    //Sobreescribimos el metodo heredado de ProductoServices
+public class ProductoServiceImpl {
+    //implements ProductoService
+    /*Sobreescribimos el metodo heredado de ProductoServices
     @Override
     public List<Producto> listar() {
-        /*
+
          * El metodo retorna una lista en forma de arreglo de objetos de tipo Producto
          * Estos objetos que creamos se van al modelo de nuestra aplicación web
-         * */
+         *
         return Arrays.asList(new Producto(1L, "Laptop", "Computación", 256.23),
                 new Producto(2L, "Mouse", "Computacion", 25.50),
                 new Producto(3L, "Cocina", "Cocina", 25.35));
 
 
     }
-
+*/
     /**
      * Se sobrescribe el metodo porId() heredado de la interfaz ProductoService.
      * Este metodo permite buscar un producto específico en el catálogo utilizando
@@ -42,8 +43,8 @@ public class ProductoServiceImpl implements ProductoService {
      * Este metodo es fundamental para operaciones como agregar un producto al carrito,
      * mostrar detalles de un producto específico, o actualizar información.
      *
-     * @param id Identificador único del producto que se desea buscar (tipo Long)
-     */
+
+
 
     @Override
     public Optional<Producto> porId(Long id) {
@@ -71,8 +72,10 @@ public class ProductoServiceImpl implements ProductoService {
          *      y retorna Optional<Producto> con el producto dentro
          *    - Si NO encuentra ningún producto (la lista está vacía o ninguno coincide),
          *      retorna Optional.empty(), que es un contenedor vacío pero seguro
-         */
+
         return listar().stream().filter(p -> p.getId().equals(id)).findAny();
-    }
+     */
+
+
 }
 

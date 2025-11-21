@@ -25,6 +25,7 @@ import models.Producto;
 // Se importan las clases de servicio que contienen la lógica de negocio
 import services.ProductoService;
 import services.ProductoServiceImpl;
+import services.ProductoServiceJdbcImpl;
 
 // Se importa la clase para manejar excepciones de entrada/salida
 import java.io.IOException;
@@ -66,7 +67,7 @@ public class AgregarCarroServlet extends HttpServlet {
          * ProductoService, de esta manera accedemos a los métodos del servicio
          * como listar() y porId() para interactuar con el catálogo de productos.
          */
-        ProductoService service = new ProductoServiceImpl();
+        ProductoService service = new ProductoServiceJdbcImpl(conn);
 
         /**
          * Se busca el producto específico por su ID utilizando el servicio.

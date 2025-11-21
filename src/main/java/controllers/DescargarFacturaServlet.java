@@ -107,7 +107,7 @@ public class DescargarFacturaServlet extends HttpServlet {
             for (ItemCarro item : detalleCarro.getItem()) {
 
                 // Columna ID del producto
-                tabla.addCell(item.getProducto().getIdProducto().toString());
+                tabla.addCell(item.getProducto().getId().toString());
 
                 // Columna Nombre del producto
                 tabla.addCell(item.getProducto().getNombre());
