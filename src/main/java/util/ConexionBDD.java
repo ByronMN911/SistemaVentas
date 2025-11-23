@@ -14,7 +14,7 @@ public class ConexionBDD {
     /*Esta es la cadena de dirección, que es la dirección de en donde se encuentra
      el driver de la base de datos
     */
-    private static String url = "jdbc:mysql://localhost:3306/sistemaventas?serverTimezone=UTC";
+    private static String url = "jdbc:mysql://localhost:3306/siscompraventa?serverTimezone=UTC";
     /*
      * Definimos variables privadas y estáticas (permiten utilizar directamente las variables sin crear instancias
      * pero como son private solo se pueden usar en esta clase.

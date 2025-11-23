@@ -83,11 +83,11 @@ public class CategoriaRepositoryJdbcImplement implements Repository<Categoria> {
         if(categoria.getId() != null && categoria.getId()>0){
             // Actualizamos una categoría existente
             // La sentencia SQL para UPDATE debe incluir el ID en la cláusula WHERE
-            sql = "UPDATE categoria SET nombreCategoria=?, descripcion=?, estado=? WHERE id=?";
+            sql = "UPDATE categoria SET nombreCategoria=?, descripción=?, estado=? WHERE id=?";
         } else {
             // Es una nueva categoría (INSERT)
             // Asume que el 'estado' por defecto para una nueva categoría es 1 (Activo)
-            sql = "INSERT INTO categoria (nombreCategoria, descripcion, estado)" +
+            sql = "INSERT INTO categoria (nombreCategoria, descripción, estado)" +
                     "VALUES (?, ?, 1)";
         }
 
@@ -131,8 +131,8 @@ public class CategoriaRepositoryJdbcImplement implements Repository<Categoria> {
         Categoria categoria = new Categoria();
         categoria.setId(rs.getLong("id"));
         categoria.setNombre(rs.getString("nombreCategoria"));
-        categoria.setDescripcion(rs.getString("descripcion"));
-        categoria.setEstado(rs.getInt("estado"));
+        categoria.setDescripcion(rs.getString("descripción"));
+        categoria.setEstado(rs.getInt("condicion"));
         return categoria;
     }
 
