@@ -48,6 +48,7 @@ public class ProductoFormServlet extends HttpServlet {
 
         // Inicializamos el servicio de productos, pasándole la conexión activa.
         ProductoService service = new ProductoServiceJdbcImpl(conn);
+        // Definimoa una variable de tipo long para almacenar el id de un producto
         Long id;
 
         /**
@@ -194,7 +195,7 @@ public class ProductoFormServlet extends HttpServlet {
             // Si el formato es incorrecto, se asignan nulos (la validación de campos vacíos ya se hizo).
             fechaElaboracion = null;
             fechaCaducidad = null;
-            // Nota: Aquí se podría añadir un error al mapa si se desea validar el formato específico.
+
         }
 
         // Captura del ID oculto (si es una edición), o 0L si es nuevo.

@@ -187,3 +187,70 @@ h3 {
     margin: 10px auto;
     border-radius: 8px;
 }
+
+/* ==========================
+   ESTILOS PARA LOS NUEVOS ELEMENTOS DEL FORMULARIO (form.jsp)
+========================== */
+
+/* Estilos para SELECT (Desplegable) y TEXTAREA */
+/* Se unifican los estilos con el INPUT para mantener consistencia */
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #dcdde1;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    /* Para el select, se asegura el color del texto */
+    color: #2f3640;
+    /* Para textarea, se ajusta para que el redimensionamiento sea vertical */
+    resize: vertical;
+    box-sizing: border-box; /* Incluir padding y borde en el ancho total */
+}
+
+/* Efecto focus para SELECT y TEXTAREA */
+select:focus,
+textarea:focus {
+    border-color: #0097e6;
+    box-shadow: 0 0 4px rgba(0,151,230,0.4);
+    outline: none;
+}
+
+/* Estilos para el botón de ENVIO (input[type="submit"]) */
+input[type="submit"] {
+    /* Sobrescribe el estilo general de input */
+    width: 100%;
+    padding: 10px;
+    background-color: #4a69bd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 10px; /* Separación después del último campo */
+}
+
+input[type="submit"]:hover {
+    background-color: #3f58a3; /* Un poco más oscuro */
+}
+
+input[type="submit"]:active {
+    transform: scale(0.99); /* Efecto de click/presión */
+}
+
+/* Estilos para los mensajes de error de validación */
+/* En tu JSP se usan <div> con style="color: red", esta clase lo estiliza mejor */
+.error-message {
+    color: #c0392b; /* Rojo fuerte para errores */
+    background-color: #fceae9; /* Fondo muy claro para el error */
+    border: 1px solid #c0392b;
+    padding: 8px 12px;
+    margin-top: -10px; /* Acercarlo al campo que lo generó */
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    text-align: left;
+}

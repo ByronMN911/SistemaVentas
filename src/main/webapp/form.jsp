@@ -3,7 +3,7 @@
   Fecha: 21-11-2025
   Version: 1.0
   Descripción: Este JPS se encarga de mostrar un formulario para crear o actualizar la información
-  de un producto usando el Hashmap que mapea y almacena errores de nuestro ProductoFormServlet.java
+  de un producto usando el Hashmap que mapea y almacena errores en nuestro ProductoFormServlet.java
 --%>
 <%-- Directivas JSP: Define el tipo de contenido, el lenguaje y las importaciones de clases Java necesarias --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"
@@ -22,15 +22,17 @@
     // 2. Formateo de fechas para campos 'input type="date"'
     // Se formatea la fecha de elaboración a String en formato "yyyy-MM--dd" si no es null.
     String fechaElaboracion = producto.getFechaElaboracion()!=null?
-            producto.getFechaElaboracion().format(DateTimeFormatter.ofPattern("yyyy-MM--dd")):"";
+            producto.getFechaElaboracion().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")):"";
     // Se formatea la fecha de caducidad a String en formato "yyyy-MM--dd" si no es null.
     String fechaCaducidad = producto.getFechaCaducidad()!=null?
-            producto.getFechaCaducidad().format(DateTimeFormatter.ofPattern("yyyy-MM--dd")):"";
+            producto.getFechaCaducidad().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")):"";
 %>
 
 <html>
 <head>
     <title>Formulario Productos</title>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/estilos.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'>
 </head>
 <body>
 <%-- Formulario HTML: El 'action' apunta al servlet que manejará la creación/actualización. --%>
@@ -43,7 +45,7 @@
         <input type="text" name="nombre" id="nombre" value="<%=producto.getNombre() != null ? producto.getNombre() : "" %>">
         <%-- Muestra error si existe una entrada con la clave "nombre" en el mapa de errores. --%>
         <% if (errores != null && errores.containsKey("nombre")) {%>
-        <div style="color: red"><%=errores.get("nombre")%></div>
+        <div class="error-message"><%=errores.get("nombre")%></div>
         <% } %>
     </div>
 
@@ -63,30 +65,31 @@
         </select>
         <%-- Muestra error si existe una entrada con la clave "categoria" en el mapa de errores. --%>
         <% if (errores != null && errores.containsKey("categoria")) {%>
-        <div style="color: red"><%=errores.get("categoria")%></div>
+        <div class="error-message"><%=errores.get("categoria")%></div>
         <% } %>
     </div>
 
     <%-- Campo Stock --%>
     <div>
         <label for="stock">Ingrese el stock</label>
-        <%-- Se usa 'type="number"' para forzar entrada numérica. (Faltaría aquí: value="<%=producto.getStock()%>") --%>
+        <%-- Se usa 'type="number"' para forzar entrada numérica. --%>
         <input type="number" name="stock" id="stock" value="<%=producto.getStock()%>">
         <%-- Muestra error si existe una entrada con la clave "stock" en el mapa de errores. --%>
         <% if (errores != null && errores.containsKey("stock")) {%>
-        <div style="color: red"><%=errores.get("stock")%></div>
+        <div class="error-message"><%=errores.get("stock")%></div>
         <% } %>
     </div>
 
     <%-- Campo Precio --%>
     <div>
         <label for="precio">Precio</label>
-        <%-- 'step="0.01"' permite decimales. (Faltaría aquí: value="<%=producto.getPrecio()%>") --%>
+        <div>
+        <%-- 'step="0.01"' permite decimales.--%>
         <input type="number" step="0.01" name="precio" id="precio" value="<%=producto.getPrecio()%>">
         <%-- Muestra error si existe una entrada con la clave "precio" en el mapa de errores. --%>
-        <div style="color: red">
+        </div>
             <% if (errores != null && errores.containsKey("precio")) {%>
-            <div style="color: red"><%=errores.get("precio")%></div>
+            <div class="error-message"><%=errores.get("precio")%></div>
             <% } %>
         </div>
 
@@ -97,7 +100,6 @@
                 <%-- El contenido actual de la descripción se inserta dentro del tag textarea. --%>
                 <textarea name="descripcion" id="descripcion" cols="30" rows="10"><%=producto.getDescripcion() != null ? producto.getDescripcion() : "" %></textarea>
             </div>
-            <%-- Se puede añadir aquí la comprobación de error para "descripcion" si aplica. --%>
         </div>
 
         <%-- Campo Código --%>
@@ -109,7 +111,7 @@
             </div>
             <%-- Muestra error si existe una entrada con la clave "codigo" en el mapa de errores. --%>
             <% if (errores != null && errores.containsKey("codigo")) {%>
-            <div style="color: red"><%=errores.get("codigo")%></div>
+            <div class="error-message"><%=errores.get("codigo")%></div>
             <% } %>
         </div>
 
@@ -122,7 +124,7 @@
             </div>
             <%-- Muestra error si existe una entrada con la clave "fecha_elaboracion" en el mapa de errores. --%>
             <% if (errores != null && errores.containsKey("fecha_elaboracion")) {%>
-            <div style="color: red"><%=errores.get("fecha_elaboracion")%></div>
+            <div class="error-message"><%=errores.get("fecha_elaboracion")%></div>
             <% } %>
         </div>
 
@@ -135,7 +137,7 @@
             </div>
             <%-- Muestra error si existe una entrada con la clave "fecha_caducidad" en el mapa de errores. --%>
             <% if (errores != null && errores.containsKey("fecha_caducidad")) {%>
-            <div style="color: red"><%=errores.get("fecha_caducidad")%></div>
+            <div class="error-message"><%=errores.get("fecha_caducidad")%></div>
             <% } %>
         </div>
 
